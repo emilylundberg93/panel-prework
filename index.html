@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Data to Intelligence · Panel Pre-Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F5F4F0;
+    --bone:#FFFFFF;
+    --signal:#C5DB5F;
+    --found:#87CAB7;
+    --slate:#141414;
+    --slate-70:rgba(20,20,20,.70);
+    --slate-45:rgba(20,20,20,.45);
+    --line:rgba(20,20,20,.10);
+    --sans:"Helvetica Neue",Helvetica,Arial,Inter,sans-serif;
+    --mono:"DM Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--cream);color:var(--slate);
+    font-family:var(--sans);font-weight:400;line-height:1.7;
+    font-size:15px;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+
+  .eyebrow{
+    font-family:var(--mono);font-size:11px;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--slate-45);
+  }
+  .eyebrow .dot{color:var(--signal);}
+
+  /* ---------- cover ---------- */
+  .cover{
+    background:var(--slate);color:var(--cream);
+    padding:72px 0 64px;border-bottom:3px solid var(--signal);
+  }
+  .cover .eyebrow{color:rgba(245,244,240,.55);}
+  .cover h1{
+    font-family:var(--sans);font-weight:300;letter-spacing:-1.5px;
+    font-size:46px;line-height:1.08;margin:18px 0 10px;
+  }
+  .cover h1 .hl{color:var(--signal);}
+  .cover .sub{
+    font-size:17px;color:rgba(245,244,240,.78);font-weight:300;
+    max-width:640px;margin:0 0 32px;
+  }
+  .cover-meta{
+    display:flex;flex-wrap:wrap;gap:28px 56px;
+    border-top:1px solid rgba(245,244,240,.16);padding-top:24px;
+  }
+  .cover-meta .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,244,240,.5);margin-bottom:4px;}
+  .cover-meta .v{font-size:15px;color:var(--cream);}
+
+  /* ---------- sections ---------- */
+  section{padding:52px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .sec-num{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--found);}
+  h2{
+    font-family:var(--sans);font-weight:400;letter-spacing:-.8px;
+    font-size:30px;line-height:1.12;margin:8px 0 20px;
+  }
+  h2 .hl{color:var(--slate);border-bottom:3px solid var(--signal);padding-bottom:1px;}
+  h3{font-family:var(--sans);font-weight:500;font-size:19px;letter-spacing:-.2px;margin:28px 0 6px;}
+  p{margin:0 0 14px;color:var(--slate-70);}
+  p.lead{color:var(--slate);font-size:16px;}
+  strong{font-weight:600;color:var(--slate);}
+  a{color:var(--slate);}
+
+  ul{margin:0 0 16px;padding:0;list-style:none;}
+  ul li{position:relative;padding-left:22px;margin-bottom:9px;color:var(--slate-70);}
+  ul li::before{content:"";position:absolute;left:2px;top:11px;width:7px;height:7px;background:var(--signal);border-radius:1px;}
+
+  /* ---------- theme grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px;}
+  .card{background:var(--bone);border:1px solid var(--line);border-radius:10px;padding:20px 22px;}
+  .card .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate-45);}
+  .card .tag b{color:var(--found);font-weight:500;}
+  .card h4{font-family:var(--sans);font-weight:500;font-size:16px;margin:6px 0 8px;letter-spacing:-.2px;}
+  .card p{font-size:13.5px;margin:0;line-height:1.55;}
+
+  /* ---------- panelist blocks ---------- */
+  .panelist{background:var(--bone);border:1px solid var(--line);border-radius:12px;padding:24px 28px;margin-bottom:16px;border-left:4px solid var(--signal);}
+  .panelist .head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;}
+  .panelist .name{font-family:var(--sans);font-weight:500;font-size:20px;letter-spacing:-.3px;}
+  .panelist .role{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--slate-45);text-transform:uppercase;}
+  .panelist .why{font-size:13.5px;color:var(--slate-70);margin:8px 0 14px;border-bottom:1px solid var(--line);padding-bottom:12px;}
+  .panelist .q-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--found);margin-bottom:8px;}
+
+  /* ---------- Sean intro ---------- */
+  .sean{background:var(--slate);color:var(--cream);border-radius:12px;padding:28px 32px;}
+  .sean .role{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal);}
+  .sean h3{color:var(--cream);font-size:22px;margin:6px 0 14px;}
+  .sean p{color:rgba(245,244,240,.82);}
+  .sean p:last-child{margin-bottom:0;}
+
+  /* ---------- run of show ---------- */
+  .ros{width:100%;border-collapse:collapse;margin-top:8px;font-size:14px;}
+  .ros th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-45);text-align:left;padding:10px 12px;border-bottom:2px solid var(--slate);}
+  .ros td{padding:11px 12px;border-bottom:1px solid var(--line);color:var(--slate-70);vertical-align:top;}
+  .ros td.min{font-family:var(--mono);color:var(--slate);white-space:nowrap;width:78px;}
+  .ros td.seg{color:var(--slate);font-weight:500;width:34%;}
+  .ros tr.total td{font-family:var(--mono);font-weight:500;color:var(--slate);border-bottom:none;border-top:2px solid var(--slate);}
+
+  /* ---------- lightning ---------- */
+  .lightning li{padding-left:30px;}
+  .lightning li::before{content:none;}
+  .lightning li .num{position:absolute;left:0;top:0;font-family:var(--mono);font-size:12px;color:var(--found);font-weight:500;}
+
+  footer{background:var(--slate);color:rgba(245,244,240,.6);padding:26px 0;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;}
+
+  @media(max-width:680px){
+    .grid{grid-template-columns:1fr;}
+    .cover h1{font-size:34px;}
+    h2{font-size:24px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="cover">
+  <div class="wrap">
+    <div class="eyebrow">Chicago AI Week 2026 <span class="dot">·</span> Panelist Pre-Work</div>
+    <h1>From data to <span class="hl">intelligence.</span><br>Building trusted knowledge foundations across industries.</h1>
+    <div class="cover-meta" style="margin-top:32px;">
+      <div><div class="k">Format</div><div class="v">Moderated panel · 40 minutes</div></div>
+      <div><div class="k">Panelists</div><div class="v">4 + moderator</div></div>
+      <div><div class="k">Moderator</div><div class="v">Sean · CTO, Found AI</div></div>
+      <div><div class="k">Prep call</div><div class="v">Tuesday 6/23 · 3p CST</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ============ 01 — INTRO TO SEAN ============ -->
+<section id="moderator">
+  <div class="sec-num">01 / MODERATOR</div>
+  <h2>Your <span class="hl">moderator.</span></h2>
+  <div class="sean">
+    <div class="role">Co-founder &amp; CTO · Found AI</div>
+    <h3>Sean O'Brien</h3>
+    <p>Sean is co-founder and CTO of Found AI, an AI infrastructure company built on a simple conviction: the industry has spent its energy on better models and more data, while the real bottleneck, <strong style="color:var(--cream)">how knowledge is structured, related, and trusted over time</strong>, has gone largely unsolved. Found AI tackles that frontier directly, turning a company's raw data into a typed, traceable, permissioned knowledge layer that AI can actually reason over.</p>
+    <p>Before Found AI, Sean co-founded and led engineering at Mavely and Swyft, where the job was turning messy, unstructured data into measurable outcomes. That's the lens he'll bring to this panel: less about the models, more about the foundation underneath them.</p>
+  </div>
+</section>
+
+<!-- ============ 02 — RUN OF SHOW ============ -->
+<section id="ros">
+  <div class="sec-num">02 / RUN OF SHOW</div>
+  <h2>How the 40 minutes <span class="hl">break down.</span></h2>
+  <table class="ros">
+    <thead><tr><th>Time</th><th>Segment</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td class="min">0–5</td><td class="seg">Frame &amp; intros</td><td>I set up the through-line and introduce the panel.</td></tr>
+      <tr><td class="min">5–10</td><td class="seg">Opening go-around</td><td>The two shared opening questions.</td></tr>
+      <tr><td class="min">10–25</td><td class="seg">Themed deep dive</td><td>Through your individual questions, with shared ones woven in to spark cross-talk.</td></tr>
+      <tr><td class="min">25–30</td><td class="seg">Lightning round</td><td>Three on-theme rapid-fire questions down the row.</td></tr>
+      <tr><td class="min">30–35</td><td class="seg">Audience Q&amp;A</td><td>Optional.</td></tr>
+      <tr><td class="min">35–40</td><td class="seg">Closing word</td><td>One line each, then wrap.</td></tr>
+      <tr class="total"><td class="min">40</td><td class="seg">Total</td><td></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 03 — THE ARC ============ -->
+<section id="themes">
+  <div class="sec-num">03 / THE THROUGH-LINE</div>
+  <h2>What this panel is really <span class="hl">about.</span></h2>
+  <p class="lead">Everyone has more data and better models than they did two years ago, and most still can't get reliable, accountable intelligence out the other end. The gap isn't compute or model quality. It's the foundation underneath. Four themes carry the 40 minutes:</p>
+  <div class="grid">
+    <div class="card">
+      <div class="tag">THEME <b>01</b></div>
+      <h4>Structure before scale</h4>
+      <p>Why "more data, bigger model" stalls, and what changes when relationships and context are structured first.</p>
+    </div>
+    <div class="card">
+      <div class="tag">THEME <b>02</b></div>
+      <h4>Trust as architecture</h4>
+      <p>Provenance, lineage, and permissioning built in by design, not bolted on after.</p>
+    </div>
+    <div class="card">
+      <div class="tag">THEME <b>03</b></div>
+      <h4>Own it or rent it</h4>
+      <p>Whether you build and control your knowledge foundation or depend on someone else's, and what each choice costs.</p>
+    </div>
+    <div class="card">
+      <div class="tag">THEME <b>04</b></div>
+      <h4>From foundation to action</h4>
+      <p>What separates a foundation that demos well from one that survives production and the next model upgrade.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 — SHARED QUESTIONS ============ -->
+<section id="shared">
+  <div class="sec-num">04 / SHARED GROUND</div>
+  <h2>Questions I may ask <span class="hl">everyone.</span></h2>
+  <h3>Opening go-around</h3>
+  <ul>
+    <li>In your world, when does data actually become intelligence worth acting on? And how far off is that, day to day?</li>
+    <li>What's the most valuable thing your AI surfaces today that you simply couldn't get before the data was structured for it?</li>
+  </ul>
+  <h3>Mid-panel</h3>
+  <ul>
+    <li>Where do you let the model figure things out, and where does the foundation just have to know the answer already?</li>
+    <li>Everyone says "trust." What do you actually mean by it, and what do people keep getting wrong?</li>
+    <li>When you got the structure right, what kind of intelligence becomes available that you didn't expect? New patterns, predictions, connections?</li>
+    <li>Your data and your models are both moving targets. How do you keep the foundation from going stale?</li>
+    <li>What's one thing your industry figured out that the other three should just copy?</li>
+  </ul>
+</section>
+
+<!-- ============ 05 — PANELIST THOUGHT STARTERS ============ -->
+<section id="panelists">
+  <div class="sec-num">05 / FOR YOU SPECIFICALLY</div>
+  <h2>Thought <span class="hl">starters.</span></h2>
+
+  <!-- Amit -->
+  <div class="panelist">
+    <div class="head">
+      <div class="name">Amit Shivpuja</div>
+      <div class="role">Walmart · Dir., Data Product &amp; AI Enablement</div>
+    </div>
+    <div class="q-label">Thought starters</div>
+    <ul>
+      <li>You treat data as a product. What's the hardest part of getting an organization to actually work that way?</li>
+      <li>Once the data is packaged as a product, what can the business see or predict that it simply couldn't before those products existed?</li>
+      <li>Everyone wants AI on top of their data. How do you tell a leadership team their foundation isn't ready yet, and what does "ready" actually look like to you?</li>
+    </ul>
+  </div>
+
+  <!-- Jessica -->
+  <div class="panelist">
+    <div class="head">
+      <div class="name">Jessica Yeats, Ph.D.</div>
+      <div class="role">NVIDIA · Principal Data Scientist, Autonomous Vehicles</div>
+    </div>
+    <div class="q-label">Thought starters</div>
+    <ul>
+      <li>In autonomy, getting it wrong isn't a bad dashboard, it's a safety event. How do you build trust when the ground truth itself is messy?</li>
+      <li>The rare edge cases are where it matters most and where data is thinnest. How does that change what you keep and how you label it?</li>
+      <li>What can an AV system understand about the world today that it couldn't a few years ago, and what in the data made that leap possible?</li>
+    </ul>
+  </div>
+
+  <!-- Arjun -->
+  <div class="panelist">
+    <div class="head">
+      <div class="name">Arjun Ravi Kannan</div>
+      <div class="role">Capital One · Director, Data Science Research</div>
+    </div>
+    <div class="q-label">Thought starters</div>
+    <ul>
+      <li>In lending, being right isn't enough; you have to show your work to a regulator. How does that shape the foundation, not just the model?</li>
+      <li>Your team works on graphs. What can you see in a graph of financial relationships that you'd never spot in tables, and what does that let you do?</li>
+      <li>Fair-lending work forces you to measure bias. What's coming for the less-regulated folks on this stage that they're not ready for?</li>
+    </ul>
+  </div>
+
+  <!-- Will -->
+  <div class="panelist">
+    <div class="head">
+      <div class="name">Will Rowlands-Rees</div>
+      <div class="role">Lionbridge · Chief AI Officer</div>
+    </div>
+    <div class="q-label">Thought starters</div>
+    <ul>
+      <li>Everyone else builds on the data they're handed. You make it. Where does it usually go wrong before a model ever sees it?</li>
+      <li>Ground truth isn't the same across languages and cultures. How do you get human judgment into data at scale?</li>
+      <li>You see a lot of industries' foundations up close. Who's quietly getting this right, and what's the mistake you see over and over?</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 06 — LIGHTNING ROUND ============ -->
+<section id="lightning">
+  <div class="sec-num">06 / LIGHTNING ROUND</div>
+  <h2>On-theme <span class="hl">lightning round.</span></h2>
+  <p class="lead">Near the end, fast, one line each, straight down the row. The fun is in the contrast across four industries.</p>
+  <ul class="lightning">
+    <li><span class="num">01</span>Data or models: which is the bigger lie people tell themselves about being "AI-ready"?</li>
+    <li><span class="num">02</span>One word for the state of your industry's data foundations right now.</li>
+    <li><span class="num">03</span>Finish this: "We've gone from data to intelligence when ______."</li>
+  </ul>
+</section>
+
+<!-- ============ 07 — Q&A ============ -->
+<section id="qa">
+  <div class="sec-num">07 / AUDIENCE Q&amp;A</div>
+  <h2>Optional audience <span class="hl">Q&amp;A.</span></h2>
+  <p class="lead">If pacing allows, we'll take 5 minutes of audience questions before the close. If we're tight, I'll cut this rather than rush the lightning round.</p>
+  <ul>
+    <li>I'll repeat each question into the mic and point it at whoever's best placed to answer, so no pressure to all jump in.</li>
+    <li>If nothing comes right away, I've got a backstop prompt ready, so no awkward silence.</li>
+    <li>Keep one crisp closing line in your pocket: the one thing you want this room to remember from your seat.</li>
+  </ul>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>Found AI · Panel Pre-Work · Confidential Draft</span>
+    <span>From Data to Intelligence · Chicago AI Week 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
